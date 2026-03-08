@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8626625213914673"
-crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CaptionCraft AI - English, Malayalam, Hindi & Tamil Captions</title>
@@ -281,6 +281,12 @@ crossorigin="anonymous"></script>
   </style>
 </head>
 <body>
+
+  <!-- Hidden form for Netlify detection -->
+  <form name="subscribe" data-netlify="true" hidden>
+    <input type="email" name="email" />
+  </form>
+
   <header>
     <div class="container">
       <nav>
@@ -316,7 +322,7 @@ crossorigin="anonymous"></script>
           <div class="bubble"></div>
           <div class="mini-card">
             <h2 style="margin-bottom:8px;">Find Captions Instantly</h2>
-            <p class="muted" style="margin-bottom:0;">Choose a language, select a category, and generate captions in seconds.Copy and use them directly for WhatsApp, Instagram, or social media posts.</p>
+            <p class="muted" style="margin-bottom:0;">Choose a language, select a category, and generate captions in seconds. Copy and use them directly for WhatsApp, Instagram, or social media posts.</p>
           </div>
         </div>
       </div>
@@ -470,12 +476,14 @@ crossorigin="anonymous"></script>
 
     <section class="section">
       <div class="container panel">
-        <h2>This section is in maintenance</h2>
+        <h2>Stay Updated</h2>
         <p class="muted">Visitors can subscribe for new captions, language updates, and featured collections.</p>
-        <div class="newsletter">
-          <input type="email" placeholder="Enter your email address" />
-          <button class="btn btn-primary">Subscribe</button>
-        </div>
+
+        <form name="subscribe" method="POST" data-netlify="true" action="/thank-you.html" class="newsletter">
+          <input type="hidden" name="form-name" value="subscribe" />
+          <input type="email" name="email" placeholder="Enter your email address" required />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
       </div>
     </section>
   </main>
@@ -710,4 +718,3 @@ crossorigin="anonymous"></script>
   </script>
 </body>
 </html>
-
