@@ -9,6 +9,11 @@
     * { box-sizing: border-box; }
 
     body {
+      <form name="contact" data-netlify="true" hidden>
+  <input type="text" name="name">
+  <input type="email" name="email">
+  <textarea name="message"></textarea>
+</form>
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: #0a1020;
@@ -134,13 +139,13 @@
       <h1>Contact Us</h1>
       <p class="muted">For suggestions, feedback, or questions, use the form below.</p>
 
-      <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        onsubmit="showMessage()"
-      >
+    <form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action="/thank-you.html"
+>
         <input type="hidden" name="form-name" value="contact" />
 
         <p style="display:none;">
@@ -195,4 +200,5 @@
     }
   </script>
 </body>
+
 </html>
