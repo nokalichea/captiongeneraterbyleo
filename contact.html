@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - CaptionCraft AI</title>
+  <meta name="description" content="Contact CaptionCraft AI for suggestions, feedback, and questions." />
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0a1020;
+      color: #e5e7eb;
+      line-height: 1.7;
+    }
+
+    a {
+      color: #86efac;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(950px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #111827 50%, #1e293b);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 22px 0;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .logo span {
+      color: #22c55e;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 26px;
+      margin: 30px 0;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+    }
+
+    h1, h2 {
+      color: #fff;
+    }
+
+    .muted {
+      color: #94a3b8;
+    }
+
+    label {
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #0b1220;
+      color: #fff;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    button {
+      background: #22c55e;
+      color: #052e16;
+      border: 0;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    button:hover {
+      opacity: 0.95;
+    }
+
+    .success-box {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.22);
+      color: #bbf7d0;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 26px 0 40px;
+      color: #94a3b8;
+    }
+
+    .links {
+      margin-top: 8px;
+    }
+
+    .links a {
+      margin-right: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">Caption<span>Craft</span> AI</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h1>Contact Us</h1>
+      <p class="muted">For suggestions, feedback, or questions, use the form below.</p>
+
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        onsubmit="showMessage()"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+
+        <p style="display:none;">
+          <label>Do not fill this out if you're human:
+            <input name="bot-field" />
+          </label>
+        </p>
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Write your message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div id="successBox" class="success-box">
+        Message submitted. Check Netlify Forms for the entry.
+      </div>
+
+      <h2>Important Note</h2>
+      <p class="muted">
+        After uploading this page again to Netlify, send one test message yourself.
+        Then go to your Netlify dashboard → Forms and you should see the submission there.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>CaptionCraft AI © 2026</p>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showMessage() {
+      setTimeout(function () {
+        var box = document.getElementById("successBox");
+        if (box) {
+          box.style.display = "block";
+        }
+      }, 300);
+    }
+  </script>
+</body>
+</html>

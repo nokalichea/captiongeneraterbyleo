@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CaptionCraft AI - English, Malayalam, Hindi & Tamil Captions</title>
+  <meta name="description" content="A clean multilingual caption website with English, Malayalam, Hindi, and Tamil captions, bios, status, quotes, search, soft animations, and a friendly user experience." />
+  <meta name="keywords" content="english captions, malayalam status, hindi status, tamil captions, whatsapp status, instagram bio ideas, motivational quotes" />
+  <meta name="robots" content="index, follow" />
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0a1020;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .container { width: min(1200px, 92%); margin: auto; }
+    header {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at top right, rgba(34,197,94,0.15), transparent 20%), linear-gradient(135deg, #0f172a, #111827 50%, #1e293b);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 72px;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      right: 8%;
+      top: 100px;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(34,197,94,.18), transparent 65%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: .3px;
+    }
+    .logo span { color: #22c55e; }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: #cbd5e1;
+      font-size: .95rem;
+    }
+    .nav-links a { text-decoration: none; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 24px;
+      align-items: center;
+      padding-top: 28px;
+    }
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.05;
+      color: #fff;
+    }
+    .hero p {
+      margin: 0 0 22px;
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      max-width: 720px;
+    }
+    .hero-actions, .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn {
+      border: 0;
+      border-radius: 14px;
+      padding: 12px 18px;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: #22c55e; color: #052e16; }
+    .btn-secondary { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.18); }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #dbeafe;
+      font-size: .9rem;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+    .badge:hover { transform: translateY(-3px); border-color: rgba(255,255,255,.18); }
+    .panel, .card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.22);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .panel:hover, .card:hover, .caption-card:hover, .article:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.28);
+      border-color: rgba(255,255,255,.16);
+    }
+    .grid-3, .grid-auto, .content-grid, .blog-grid, .seo-grid, .footer-grid {
+      display: grid;
+      gap: 16px;
+    }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-auto, .content-grid, .blog-grid, .seo-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .section { padding: 64px 0; }
+    h2 {
+      color: #fff;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin: 0 0 10px;
+    }
+    h3 { color: #fff; margin-top: 0; }
+    .muted { color: #94a3b8; }
+    .tiny { font-size: .92rem; }
+    .generator-wrap {
+      margin-top: -28px;
+      position: relative;
+      z-index: 2;
+    }
+    .generator-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 20px;
+    }
+    label {
+      display: block;
+      margin: 14px 0 8px;
+      font-weight: 800;
+    }
+    select, input {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: #0b1220;
+      color: white;
+      outline: none;
+    }
+    .results {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .caption-card {
+      background: #101827;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      padding: 18px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .caption-text {
+      color: #f8fafc;
+      font-size: 1.03rem;
+      margin-bottom: 14px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .actions button {
+      background: #1e293b;
+      color: white;
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .search-box { margin-top: 18px; }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .chip {
+      background: rgba(34,197,94,.10);
+      color: #bbf7d0;
+      border: 1px solid rgba(34,197,94,.18);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: .9rem;
+      transition: transform .25s ease;
+    }
+    .chip:hover { transform: translateY(-2px); }
+    .article {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: 18px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .article p:last-child { margin-bottom: 0; }
+    .newsletter {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .quote-highlight {
+      border-left: 4px solid #22c55e;
+      padding: 16px 18px;
+      border-radius: 0 16px 16px 0;
+      background: rgba(255,255,255,.03);
+      margin-top: 16px;
+    }
+    .floating-visual {
+      min-height: 320px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(34,197,94,.10), rgba(59,130,246,.08));
+    }
+    .floating-visual .bubble {
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      animation: floaty 7s ease-in-out infinite;
+    }
+    .floating-visual .bubble:nth-child(1) { width: 90px; height: 90px; left: 18px; top: 24px; }
+    .floating-visual .bubble:nth-child(2) { width: 130px; height: 130px; right: 20px; top: 34px; animation-delay: 1s; }
+    .floating-visual .bubble:nth-child(3) { width: 70px; height: 70px; left: 44%; bottom: 24px; animation-delay: 2s; }
+    .floating-visual .bubble:nth-child(4) { width: 110px; height: 110px; right: 80px; bottom: -10px; animation-delay: 3s; }
+    .floating-visual .mini-card {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(10,16,32,.72);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 20px;
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+    @keyframes floaty {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    footer {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 42px 0 70px;
+      color: #94a3b8;
+    }
+    .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; }
+    @media (max-width: 920px) {
+      .hero, .generator-grid, .newsletter, .footer-grid, .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Caption<span>Craft</span> AI</div>
+        <div class="nav-links">
+          <a href="#generator">Generator</a>
+          <a href="#collections">Collections</a>
+          <a href="#seo-pages">Guides</a>
+          <a href="#blog">Tips</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <div class="hero">
+        <div>
+          <h1>Multilingual Caption Website With a Clean, Friendly Experience</h1>
+          <p>This version includes English, Malayalam, Hindi, and Tamil content. It is designed to feel full, useful, and easy to use, so visitors can quickly find captions, status lines, and bios without confusion.</p>
+          <div class="hero-actions">
+            <a href="#generator" class="btn btn-primary">Use Generator</a>
+            <a href="#collections" class="btn btn-secondary">Explore Collections</a>
+          </div>
+          <div class="badge-row">
+            <div class="badge">Clean Design</div>
+            <div class="badge">4 Languages</div>
+            <div class="badge">Fast Search</div>
+            <div class="badge">Mobile Friendly</div>
+          </div>
+        </div>
+        <div class="panel floating-visual">
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="mini-card">
+            <h2 style="margin-bottom:8px;">Find Captions Instantly</h2>
+            <p class="muted" style="margin-bottom:0;">Choose a language, select a category, and generate captions in seconds.Copy and use them directly for WhatsApp, Instagram, or social media posts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="generator" class="section generator-wrap">
+      <div class="container panel">
+        <div class="generator-grid">
+          <div>
+            <h2>Caption Generator</h2>
+            <p class="muted">Choose category, language, number of captions, and optional keyword.</p>
+
+            <label for="category">Category</label>
+            <select id="category">
+              <option value="love">Love</option>
+              <option value="attitude">Attitude</option>
+              <option value="motivation">Motivation</option>
+              <option value="friendship">Friendship</option>
+              <option value="sad">Sad</option>
+              <option value="funny">Funny</option>
+              <option value="bio">Instagram Bio</option>
+              <option value="study">Study Quotes</option>
+              <option value="travel">Travel Captions</option>
+              <option value="car">Car Captions</option>
+            </select>
+
+            <label for="language">Language</label>
+            <select id="language">
+              <option value="english">English</option>
+              <option value="malayalam">Malayalam</option>
+              <option value="hindi">Hindi</option>
+              <option value="tamil">Tamil</option>
+            </select>
+
+            <label for="keyword">Keyword</label>
+            <input id="keyword" type="text" placeholder="example: success, crush, BMW, exam, college" />
+
+            <label for="count">Number of captions</label>
+            <select id="count">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+            </select>
+
+            <div class="action-row" style="margin-top:18px;">
+              <button class="btn btn-primary" onclick="generateCaptions()">Generate</button>
+              <button class="btn btn-secondary" onclick="clearResults()">Clear</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="card" style="padding:16px; background:linear-gradient(135deg, rgba(34,197,94,.10), rgba(59,130,246,.08)); overflow:hidden; position:relative;">
+              <div style="position:absolute; right:-20px; top:-20px; width:120px; height:120px; border-radius:999px; background:rgba(255,255,255,.05);"></div>
+              <div style="position:absolute; right:40px; bottom:-30px; width:90px; height:90px; border-radius:999px; background:rgba(34,197,94,.12);"></div>
+              <h3 style="margin-bottom:8px;">Quick Find</h3>
+              <p class="muted tiny" style="margin:0;">Search by mood, language, or keyword and copy captions in seconds.</p>
+            </div>
+            <div class="search-box">
+              <label for="globalSearch">Search all built-in captions</label>
+              <input id="globalSearch" type="text" placeholder="search built-in captions..." oninput="renderSearchResults()" />
+            </div>
+            <div id="results" class="results"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="collections" class="section">
+      <div class="container">
+        <h2>Featured Collections</h2>
+        <p class="muted">These sections help visitors explore more content and make the homepage feel richer and more welcoming.</p>
+        <div class="content-grid">
+          <div class="card"><h3>Love Captions</h3><p class="muted">Soft, romantic, emotional lines.</p><div id="lovePreview"></div></div>
+          <div class="card"><h3>Attitude Captions</h3><p class="muted">Bold, short, confident lines.</p><div id="attitudePreview"></div></div>
+          <div class="card"><h3>Motivation Quotes</h3><p class="muted">Study, career, hustle, and success lines.</p><div id="motivationPreview"></div></div>
+          <div class="card"><h3>Regional Preview</h3><p class="muted">Malayalam, Hindi, and Tamil samples.</p><div id="regionalPreview"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights" class="section">
+      <div class="container">
+        <h2>Why People Will Like Using This Website</h2>
+        <div class="grid-auto">
+          <div class="card"><h3>Fast Results</h3><p class="muted">Users can get captions quickly without opening multiple apps or websites.</p></div>
+          <div class="card"><h3>4 Languages</h3><p class="muted">English, Malayalam, Hindi, and Tamil make the website useful for more visitors.</p></div>
+          <div class="card"><h3>Simple to Use</h3><p class="muted">Clean layout, quick copy buttons, and search make the experience smooth.</p></div>
+          <div class="card"><h3>Mobile Friendly</h3><p class="muted">The design is built to feel comfortable on phone screens where most users will visit.</p></div>
+        </div>
+        <div class="quote-highlight" id="contentNotice">Large built-in content helps visitors find something useful quickly.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Popular Keyword Buckets</h2>
+        <div class="chip-row">
+          <span class="chip">whatsapp status</span>
+          <span class="chip">instagram captions</span>
+          <span class="chip">malayalam status</span>
+          <span class="chip">hindi status</span>
+          <span class="chip">tamil caption</span>
+          <span class="chip">study quotes</span>
+          <span class="chip">car captions</span>
+          <span class="chip">love quotes</span>
+          <span class="chip">friendship captions</span>
+          <span class="chip">bio ideas</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="seo-pages" class="section">
+      <div class="container">
+        <h2>Helpful Language Guides</h2>
+        <p class="muted">This file already includes article-style sections so it feels bigger and more complete from the start.</p>
+        <div class="seo-grid">
+          <div class="article">
+            <h3>Best WhatsApp Status in English</h3>
+            <p>English content works well for broad search traffic and social sharing. Short captions and one-line quotes usually get reused more often.</p>
+          </div>
+          <div class="article">
+            <h3>Malayalam Status for Daily Use</h3>
+            <p>Malayalam pages can help target Kerala users and can be less competitive than broad English keywords.</p>
+          </div>
+          <div class="article">
+            <h3>Hindi Love and Attitude Status</h3>
+            <p>Hindi content gives you larger reach and works well for WhatsApp and Instagram users across India.</p>
+          </div>
+          <div class="article">
+            <h3>Tamil Quotes and Captions</h3>
+            <p>Tamil pages can add strong regional traffic and help the site look much more complete and multilingual.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="section">
+      <div class="container">
+        <h2>Helpful Caption Tips</h2>
+        <div class="blog-grid">
+          <div class="card"><h3>Why Short Captions Spread Faster</h3><p class="muted">Short captions are easier to copy, read, and post. That makes them better for reuse and repeat visits.</p></div>
+          <div class="card"><h3>How Multilingual Content Helps Growth</h3><p class="muted">Using English, Malayalam, Hindi, and Tamil can help reach broader search traffic and multiple user groups.</p></div>
+          <div class="card"><h3>Why Regional Content Matters</h3><p class="muted">Regional pages often have lower competition and can make a new website stand out faster.</p></div>
+          <div class="card"><h3>How to Pick the Right Caption Faster</h3><p class="muted">Choose based on mood, platform, and audience. Short lines usually work best for status and reels.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container panel">
+        <h2>This section is in maintenance</h2>
+        <p class="muted">Visitors can subscribe for new captions, language updates, and featured collections.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Enter your email address" />
+          <button class="btn btn-primary">Subscribe</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">Caption<span>Craft</span> AI</div>
+        <p class="tiny">A multilingual caption website built to feel clean, useful, and easy for visitors to enjoy.</p>
+      </div>
+      <div>
+        <h3>Sections</h3>
+        <p class="tiny">Generator</p>
+        <p class="tiny">Collections</p>
+        <p class="tiny">Language Guides</p>
+        <p class="tiny">Tips</p>
+      </div>
+      <div>
+        <h3>Highlights</h3>
+        <p class="tiny">Fast search</p>
+        <p class="tiny">Multiple languages</p>
+        <p class="tiny">Clean layout</p>
+        <p class="tiny">Easy copy and share</p>
+      </div>
+    </div>
+    <div class="container" style="margin-top:24px; text-align:center;">
+      <p class="tiny">CaptionCraft AI © 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const seeds = {
+      english: {
+        love: ["You are the peace my heart was searching for.","Every love story is beautiful, but ours is my favorite.","My favorite place is next to you.","Love made my ordinary days beautiful.","You are my quiet happiness.","True love feels like peace, not pressure."],
+        attitude: ["I do not chase. I attract.","Built different. Stayed real.","Confidence is my default setting.","Less talk, more results.","Class over noise.","I stay rare on purpose."],
+        motivation: ["Dream big. Work hard. Stay consistent.","Small progress is still progress.","Your future depends on what you do today.","Keep going. The result is coming.","Make your future self proud.","Results come after repetition."],
+        friendship: ["Real friends make life lighter.","A loyal friend is a rare gift.","Good friends turn moments into memories.","Some friendships feel like home.","One loyal friend is enough.","Trust builds lasting friendship."],
+        sad: ["Some pain stays quiet but deep.","Not every broken thing makes noise.","Smiles can hide more than tears show.","Some nights are louder than words.","Some wounds answer only to time.","Even healing can feel heavy."],
+        funny: ["My life is basically one big buffering icon.","I am not lazy. I am on power-saving mode.","My wallet and I are no longer speaking.","Today I survived on vibes and snacks.","Sleep is my love language.","The Wi-Fi understands me better than people."],
+        bio: ["Simple mind. Big dreams. Quiet moves.","Focused on growth, not noise.","Calm energy. Sharp vision.","Low-key but locked in.","Future in progress.","Still loading greatness."],
+        study: ["Study now, shine later.","A focused hour beats a distracted day.","Your books are building your future.","Revision beats panic.","Keep showing up for your goals.","One chapter today is still progress."],
+        travel: ["Collecting views, not things.","Travel resets the soul.","Wander more, worry less.","The best stories begin with a trip.","Travel is therapy with scenery.","The road knows what the heart needs."],
+        car: ["Built for the drive, not the approval.","Clean machine, clear mind.","Power feels different behind the wheel.","Dream car energy only.","Horsepower with class.","Road presence matters."]
+      },
+      malayalam: {
+        love: ["നിന്നോട് കൂടെ ഉള്ള നിമിഷങ്ങളാണ് എനിക്ക് ഏറ്റവും പ്രിയം.","യഥാർത്ഥ സ്നേഹം സമാധാനം തന്നെയാണ്.","നിന്റെ പുഞ്ചിരി എന്റെ ദിവസത്തെ മാറ്റുന്നു.","ഹൃദയം ശാന്തമാകുന്നത് ചിലരോടൊപ്പമാണ്.","സ്നേഹം വാക്കുകളിൽക്കാൾ കൂടുതൽ അനുഭവമാണ്.","നീ അടുത്തിരിക്കുമ്പോൾ ജീവിതം ലളിതമാകുന്നു."],
+        attitude: ["എന്റെ വഴിയിൽ ഞാൻ തന്നെ പോകും.","എനിക്ക് എന്റെ വില അറിയാം.","കുറച്ച് വാക്കുകൾ, കൂടുതൽ ഫലം.","ശാന്തതയെ ബലഹീനതയായി കരുതരുത്.","എന്റെ വൈബ് തന്നെ മതിയാകും.","ഞാൻ ഒറിജിനൽ ആണ്."],
+        motivation: ["സ്വപ്നം വലിയതാക്കൂ, പരിശ്രമം കൂടി വർധിപ്പിക്കൂ.","ചെറിയ മുന്നേറ്റവും മുന്നേറ്റം തന്നെയാണ്.","ഇന്ന് ചെയ്യുന്ന പരിശ്രമമാണ് നാളെയെ നിർമ്മിക്കുന്നത്.","ഒഴിവാക്കാതെ തുടരൂ.","ഫലം വൈകിയാലും വരും.","ഭാവിയെ അഭിമാനിപ്പിക്കുന്ന രീതിയിൽ ജീവിക്കൂ."],
+        friendship: ["യഥാർത്ഥ സുഹൃത്തുകൾ ജീവിതം ലഘൂകരിക്കും.","വിശ്വസ്തനായ സുഹൃത്ത് വലിയ സമ്മാനമാണ്.","സൗഹൃദം വിശദീകരണം വേണ്ടാത്ത ആശ്വാസമാണ്.","ഒരു നല്ല സുഹൃത്ത് മതി.","ദൂരം സൗഹൃദത്തെ തോൽപ്പിക്കില്ല.","നിസ്സാര നിമിഷങ്ങൾ പോലും സുഹൃത്തുകൾ കൊണ്ട് പ്രത്യേകമാകും."],
+        sad: ["ചില വേദനകൾ നിശ്ശബ്ദമായിരിക്കും.","എല്ലാ തകർച്ചക്കും ശബ്ദമുണ്ടാകില്ല.","പുഞ്ചിരി പലപ്പോഴും വേദന മറയ്ക്കും.","ചില രാത്രികൾ വാക്കുകൾക്കാൾ ഭാരം വഹിക്കും.","ചില മുറിവുകൾക്ക് മറുപടി സമയം മാത്രമാണ്.","മനസിന്റെ ക്ഷീണം പുറത്തുനിന്ന് കാണില്ല."],
+        funny: ["എന്റെ ജീവിതം ഒരു ലോഡിംഗ് സ്ക്രീൻ പോലെ ആണ്.","എനിക്ക് അവധി വേണം, അതും പലതവണ.","ഞാൻ മടിയൻ അല്ല, പവർ സേവിംഗ് മോഡ് ആണ്.","ഇന്ന് എനിക്ക് ഭക്ഷണവും വൈബും മാത്രം.","ഉറക്കം എന്റെ പ്രണയഭാഷയാണ്.","വൈഫൈ എന്നെ കൂടുതൽ മനസിലാക്കുന്നു."],
+        bio: ["ലളിതമായ മനസ്സ്. വലിയ സ്വപ്നങ്ങൾ.","ശബ്ദത്തേക്കാൾ വളർച്ച പ്രധാനം.","ശാന്തമായ ഊർജം. കൃത്യമായ ദൃഷ്ടി.","ലോ-കീ പക്ഷേ ലോക്ക്ഡ് ഇൻ.","ഭാവി നിർമ്മാണത്തിൽ.","മുന്നേറ്റം ലോഡിംഗ്..."],
+        study: ["ഇന്ന് പഠിക്കൂ, നാളെ തിളങ്ങൂ.","ഒരു കേന്ദ്രീകൃത മണിക്കൂർ വലിയ മാറ്റം തരും.","നിന്റെ പുസ്തകങ്ങൾ ഭാവിയെ നിർമ്മിക്കുന്നു.","റിവിഷൻ പാനിക്കിനെ തോൽപ്പിക്കും.","ലക്ഷ്യത്തിനായി തുടർച്ചയായി പ്രവർത്തിക്കൂ.","ഒരു അധ്യായം പോലും മുന്നേറ്റമാണ്."],
+        travel: ["ഓർമ്മകൾ ശേഖരിക്കൂ, സാധനങ്ങൾ അല്ല.","യാത്ര ആത്മാവിനെ പുതുക്കും.","കൂടുതൽ യാത്ര ചെയ്യൂ, കുറച്ച് ആശങ്കപ്പെടൂ.","മികച്ച കഥകൾ യാത്രയിൽ തുടങ്ങും.","ദൃശ്യങ്ങളോടെ എത്തുന്ന തെറാപ്പിയാണ് യാത്ര.","ചില വഴികൾ മനസ്സിനാവശ്യമാണ്."],
+        car: ["ഓട്ടത്തിനായി പിറന്നത്, അംഗീകാരത്തിനല്ല.","വൃത്തിയായ മെഷീൻ, വ്യക്തമായ മനസ്സ്.","സ്റ്റിയറിംഗിന് പിന്നിൽ അനുഭവം വേറെയാണ്.","ഡ്രീം കാർ വൈബ്.","ക്ലാസോടെ പവർ.","റോഡ് പ്രസൻസ് പ്രധാനമാണ്."]
+      },
+      hindi: {
+        love: ["तुम मेरे दिल की सबसे प्यारी शांति हो।","हर प्रेम कहानी सुंदर होती है, पर हमारी सबसे खास है।","तुम्हारे पास होना ही सुकून है।","सच्चा प्यार दबाव नहीं, शांति देता है।","तुम मेरी मुस्कान की वजह हो।","तुम साथ हो तो सब आसान लगता है।"],
+        attitude: ["मैं पीछा नहीं करता, मैं आकर्षित करता हूँ।","मेरी कीमत मुझे पता है।","कम बातें, ज्यादा परिणाम।","मेरा अंदाज़ ही काफी है।","मैं अलग हूँ, नकली नहीं।","क्लास शोर से ऊपर है।"],
+        motivation: ["बड़ा सोचो, मेहनत करो, लगातार बढ़ो।","छोटी प्रगति भी प्रगति ही है।","आज का प्रयास कल बनाता है।","रुको मत, नतीजा आएगा।","अनुशासन मूड से बड़ा होता है।","अपने भविष्य को गर्व महसूस कराओ।"],
+        friendship: ["सच्चे दोस्त जिंदगी हल्की कर देते हैं।","वफादार दोस्त सबसे बड़ी दौलत है।","दोस्ती बिना समझाए मिलने वाला सुकून है।","एक अच्छा दोस्त काफी होता है।","दूरी दोस्ती को कमजोर नहीं करती।","दोस्त साधारण पलों को यादगार बना देते हैं।"],
+        sad: ["कुछ दर्द चुप होते हैं, पर गहरे होते हैं।","हर टूटन आवाज़ नहीं करती।","मुस्कान कई बार दर्द छुपा लेती है।","कुछ रातें शब्दों से भारी होती हैं।","कुछ घावों का जवाब सिर्फ समय है।","दिल की थकान बाहर से नहीं दिखती।"],
+        funny: ["मेरी जिंदगी एक बड़ी बफरिंग स्क्रीन है।","मुझे छुट्टी चाहिए, वो भी बार-बार।","मैं आलसी नहीं, पावर सेविंग मोड में हूँ।","आज मैं सिर्फ स्नैक्स और वाइब्स पर जिंदा हूँ।","नींद मेरी लव लैंग्वेज है।","वाइ-फाइ मुझे लोगों से ज्यादा समझता है।"],
+        bio: ["सादा दिमाग, बड़े सपने।","शोर नहीं, विकास ज़रूरी है।","शांत ऊर्जा, साफ नजर।","लो-की लेकिन पूरी तरह फोकस्ड।","भविष्य निर्माण में है।","महानता अभी लोड हो रही है।"],
+        study: ["आज पढ़ो, कल चमको।","एक फोकस्ड घंटा बहुत बदल देता है।","तुम्हारी किताबें तुम्हारा भविष्य बना रही हैं।","रिविजन घबराहट को हराता है।","अपने लक्ष्य के लिए लगे रहो।","एक अध्याय भी प्रगति है।"],
+        travel: ["चीजें नहीं, नज़ारे जमा करो।","यात्रा आत्मा को रीसेट करती है।","ज्यादा घूमो, कम चिंता करो।","सबसे अच्छी कहानियाँ सफर से शुरू होती हैं।","यात्रा दृश्य वाली थेरेपी है।","कुछ रास्ते दिल के लिए ज़रूरी होते हैं।"],
+        car: ["ड्राइव के लिए बना हूँ, मंजूरी के लिए नहीं।","क्लीन मशीन, क्लियर माइंड।","स्टीयरिंग के पीछे एहसास अलग होता है।","ड्रीम कार वाली वाइब।","क्लास के साथ पावर।","रोड प्रेज़ेंस मायने रखती है।"]
+      },
+      tamil: {
+        love: ["நீ என் மனசுக்கான அமைதி.","எல்லா காதல் கதைகளும் அழகு, ஆனால் நம்மது சிறப்பு.","உன் அருகில் இருப்பதே சுகம்.","உண்மையான காதல் அழுத்தமல்ல, அமைதி.","உன் சிரிப்பு என் நாளை மாற்றுகிறது.","நீ இருந்தால் வாழ்க்கை எளிதாகிறது."],
+        attitude: ["நான் யாரையும் துரத்த மாட்டேன், நான் ஈர்க்குவேன்.","என் மதிப்பு எனக்கு தெரியும்.","குறைந்த வார்த்தை, அதிக முடிவு.","என் ஸ்டைல் போதுமானது.","நான் வேற லெவல், போலி இல்லை.","கிளாஸ் எப்போதும் சத்தத்தை விட மேல்."],
+        motivation: ["பெரிதாக நினை, கடினமாக உழை, தொடர்ந்து செல்.","சிறிய முன்னேற்றமும் முன்னேற்றம்தான்.","இன்றைய உழைப்பு நாளையை உருவாக்கும்.","நிறுத்தாதே, முடிவு வரும்.","ஒழுக்கம் மனநிலையை விட பெரியது.","உன் எதிர்காலம் பெருமை கொள்ளும் மாதிரி செய்."],
+        friendship: ["உண்மையான நண்பர்கள் வாழ்க்கையை லைட்டாக மாற்றுவார்கள்.","நம்பிக்கைக்குரிய நண்பர் பெரிய செல்வம்.","நட்பு விளக்கம் தேவையில்லாத நிம்மதி.","ஒரு நல்ல நண்பர் போதும்.","தூரம் நட்பை குறைக்காது.","நண்பர்கள் சாதாரண தருணங்களையும் நினைவாக மாற்றுவார்கள்."],
+        sad: ["சில வலிகள் அமைதியாக இருப்பினும் ஆழமாக இருக்கும்.","ஒவ்வொரு உடைவும் சத்தம் செய்யாது.","சிரிப்பு பல நேரம் வலியை மறைக்கும்.","சில இரவுகள் வார்த்தைகளை விட கனமாக இருக்கும்.","சில காயங்களுக்கு பதில் நேரம்தான்.","இதய சோர்வு வெளியே தெரியாது."],
+        funny: ["என் வாழ்க்கை ஒரு பெரிய பஃபரிங் ஸ்கிரீன் மாதிரி.","எனக்கு லீவ் வேண்டும், அதுவும் பல முறை.","நான் சோம்பேறி இல்லை, பவர் சேவிங் மோடில் இருக்கேன்.","இன்று நான் ஸ்நாக்ஸும் வைப்ஸும் வைத்து தான் இருக்கேன்.","தூக்கம் தான் என் லவ் லாங்க்வேஜ்.","வைஃபை என்னை மனிதர்களை விட நன்றாக புரிந்துகொள்கிறது."],
+        bio: ["எளிய மனம், பெரிய கனவுகள்.","சத்தம் இல்லை, வளர்ச்சி முக்கியம்.","அமைதியான எனர்ஜி, கூர்மையான பார்வை.","லோ-கீ ஆனால் முழு ஃபோக்கஸ்.","எதிர்காலம் கட்டப்பட்டுக் கொண்டிருக்கிறது.","பெருமை இன்னும் லோடாகிறது."],
+        study: ["இன்று படி, நாளை பிரகாசி.","ஒரு கவனமான மணி நேரம் பெரிய மாற்றம் தரும்.","உன் புத்தகங்கள் உன் எதிர்காலத்தை கட்டுகிறது.","ரிவிஷன் பயத்தை வெல்லும்.","உன் இலக்குக்காக தொடர்ந்து செய்.","ஒரு அத்தியாயமும் முன்னேற்றம் தான்."],
+        travel: ["பொருட்கள் அல்ல, காட்சிகளை சேகரி.","பயணம் ஆன்மாவை ரீசெட் செய்கிறது.","அதிகம் பயணம் செய், குறைவு கவலைப்படு.","சிறந்த கதைகள் பயணத்தில் தொடங்கும்.","காட்சிகளுடன் வரும் தெரபி தான் பயணம்.","சில பாதைகள் மனசுக்கே தேவை."],
+        car: ["ஓட்டத்துக்காக பிறந்தது, ஒப்புதலுக்காக இல்லை.","சுத்தமான மெஷின், தெளிவான மனம்.","ஸ்டீரிங்கின் பின்னால் உணர்வு வேற மாதிரி இருக்கும்.","ட்ரீம் கார் வைப்.","கிளாஸோடு பவர்.","ரோடு பிரசென்ஸ் முக்கியம்."]
+      }
+    };
+
+    const templates = {
+      english: { prefixes: ["", "Just ", "Always ", "Still ", "Today ", "Honestly, ", "For real, ", "No doubt, ", "Every day ", "Right now, "], suffixes: ["", " ✨", " 💫", " 🔥", " 🌙", " — keep going.", " — and I mean it.", " without apology.", " with full heart.", " every single time."], hashtags: ["#vibes", "#status", "#caption", "#quote", "#mindset", "#daily", "#instavibes", "#reelready"] },
+      malayalam: { prefixes: ["", "ഇന്ന് ", "എപ്പോഴും ", "ശാന്തമായി ", "സത്യം പറഞ്ഞാൽ ", "ജീവിതത്തിൽ ", "നിശ്ശബ്ദമായി ", "മനസോടെ ", "വാസ്തവത്തിൽ ", "ഇപ്പോൾ "], suffixes: ["", " ✨", " 💫", " 🔥", " 🌙", " അത്ര തന്നെ.", " അതാണ് സത്യം.", " മനസോടെ.", " സ്വന്തം രീതിയിൽ.", " ഉറപ്പായി."], hashtags: ["#status", "#malayalam", "#quotes", "#daily", "#love", "#motivation", "#friendship", "#caption"] },
+      hindi: { prefixes: ["", "आज ", "हमेशा ", "सच कहूँ तो ", "ज़िंदगी में ", "शांत होकर ", "दिल से ", "अभी ", "सीधे शब्दों में ", "हर दिन "], suffixes: ["", " ✨", " 💫", " 🔥", " 🌙", " बस इतना ही।", " यही सच है।", " दिल से।", " अपने अंदाज़ में।", " यकीन मानो।"], hashtags: ["#status", "#hindi", "#quotes", "#daily", "#love", "#motivation", "#friendship", "#caption"] },
+      tamil: { prefixes: ["", "இன்று ", "எப்போதும் ", "உண்மையாக சொன்னால் ", "வாழ்க்கையில் ", "அமைதியாக ", "மனதுடன் ", "இப்போது ", "நேராக சொன்னால் ", "ஒவ்வொரு நாளும் "], suffixes: ["", " ✨", " 💫", " 🔥", " 🌙", " அதுதான்.", " இதுதான் உண்மை.", " மனதோடு.", " என் ஸ்டைலில்.", " நிச்சயம்."], hashtags: ["#status", "#tamil", "#quotes", "#daily", "#love", "#motivation", "#friendship", "#caption"] }
+    };
+
+    function expandCategory(list, lang) {
+      const cfg = templates[lang];
+      const out = new Set(list);
+      list.forEach((line, i) => {
+        cfg.prefixes.forEach((p, pi) => {
+          cfg.suffixes.forEach((s, si) => {
+            if ((i + pi + si) % 2 === 0) out.add((p + line + s).trim());
+          });
+        });
+        cfg.hashtags.forEach((h, hi) => {
+          if ((i + hi) % 2 === 0) out.add(`${line} ${h}`);
+        });
+      });
+      return Array.from(out);
+    }
+
+    const captionBank = {};
+    Object.keys(seeds).forEach(lang => {
+      captionBank[lang] = {};
+      Object.keys(seeds[lang]).forEach(cat => {
+        captionBank[lang][cat] = expandCategory(seeds[lang][cat], lang);
+      });
+    });
+
+    function totalCaptionCount() {
+      let total = 0;
+      Object.values(captionBank).forEach(langObj => {
+        Object.values(langObj).forEach(arr => total += arr.length);
+      });
+      return total;
+    }
+
+    function getCategoryList(lang, category) {
+      return (captionBank[lang] && captionBank[lang][category]) ? captionBank[lang][category] : [];
+    }
+
+    function makeCard(text) {
+      const card = document.createElement('div');
+      card.className = 'caption-card';
+      card.innerHTML = `
+        <div class="caption-text">${text}</div>
+        <div class="actions">
+          <button onclick="copyCaption(${JSON.stringify(text)})">Copy</button>
+          <button onclick="shareCaption(${JSON.stringify(text)})">Share</button>
+        </div>
+      `;
+      return card;
+    }
+
+    function generateCaptions() {
+      const category = document.getElementById('category').value;
+      const language = document.getElementById('language').value;
+      const keyword = document.getElementById('keyword').value.trim();
+      const count = parseInt(document.getElementById('count').value, 10);
+      const results = document.getElementById('results');
+      results.innerHTML = '';
+
+      const base = [...getCategoryList(language, category)];
+      for (let i = 0; i < count; i++) {
+        const item = base[i % base.length] || '';
+        const text = keyword ? `${item} #${keyword.replace(/\s+/g, '')}` : item;
+        results.appendChild(makeCard(text));
+      }
+    }
+
+    function copyCaption(text) {
+      navigator.clipboard.writeText(text);
+      alert('Copied successfully');
+    }
+
+    function shareCaption(text) {
+      if (navigator.share) {
+        navigator.share({ title: 'CaptionCraft AI', text });
+      } else {
+        navigator.clipboard.writeText(text);
+        alert('Sharing not supported here. Copied instead.');
+      }
+    }
+
+    function clearResults() {
+      document.getElementById('results').innerHTML = '';
+      document.getElementById('keyword').value = '';
+      document.getElementById('globalSearch').value = '';
+      generateCaptions();
+    }
+
+    function renderPreview(targetId, lang, category, count = 4) {
+      const target = document.getElementById(targetId);
+      target.innerHTML = '';
+      getCategoryList(lang, category).slice(0, count).forEach(item => {
+        const p = document.createElement('p');
+        p.className = 'tiny';
+        p.textContent = '• ' + item;
+        target.appendChild(p);
+      });
+    }
+
+    function renderRegionalPreview() {
+      const target = document.getElementById('regionalPreview');
+      target.innerHTML = '';
+      [
+        getCategoryList('malayalam','love')[0],
+        getCategoryList('hindi','attitude')[0],
+        getCategoryList('tamil','motivation')[0],
+        getCategoryList('malayalam','friendship')[1]
+      ].forEach(item => {
+        const p = document.createElement('p');
+        p.className = 'tiny';
+        p.textContent = '• ' + item;
+        target.appendChild(p);
+      });
+    }
+
+    function renderSearchResults() {
+      const query = document.getElementById('globalSearch').value.trim().toLowerCase();
+      const results = document.getElementById('results');
+      if (!query) {
+        generateCaptions();
+        return;
+      }
+      results.innerHTML = '';
+      const all = [];
+      Object.values(captionBank).forEach(langObj => {
+        Object.values(langObj).forEach(arr => all.push(...arr));
+      });
+      const matches = all.filter(item => item.toLowerCase().includes(query)).slice(0, 60);
+      if (!matches.length) {
+        results.innerHTML = '<div class="caption-card"><div class="caption-text">No matching captions found.</div></div>';
+        return;
+      }
+      matches.forEach(item => results.appendChild(makeCard(item)));
+    }
+
+    const total = totalCaptionCount();
+    const notice = document.getElementById('contentNotice');
+    if (notice) notice.textContent = `This site now has ${total}+ built-in caption variations across English, Malayalam, Hindi, and Tamil.`;
+
+    renderPreview('lovePreview', 'english', 'love');
+    renderPreview('attitudePreview', 'english', 'attitude');
+    renderPreview('motivationPreview', 'english', 'motivation');
+    renderRegionalPreview();
+    generateCaptions();
+  </script>
+</body>
+</html>
